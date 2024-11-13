@@ -13,18 +13,41 @@ _*.*
 .idea/
 *.iml
 
-# Ignorar archivos de dependencias (si usas npm)
+# Ignorar archivos de dependencias (si usas npm o yarn)
 node_modules/
 package-lock.json
+yarn.lock
 
-# Ignorar archivos de construcción (si usas un build tool)
+# Ignorar archivos de TypeScript
+*.tsbuildinfo
+
+# Ignorar archivos de construcción
 dist/
 build/
+out/
+
+# Ignorar archivos generados al compilar TypeScript
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
 
 # Ignorar archivos de configuración de entorno
 .env
 .env.local
+.env.*.local
 
-# Ignorar otros archivos que no quieras subir
+# Ignorar carpetas de logs y archivos temporales
+logs/
 *.log
 *.tmp
+*.temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar archivos de configuración de herramientas
+.eslintcache
+.parcel-cache/
+.cache/
+coverage/
