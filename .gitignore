@@ -1,0 +1,30 @@
+# Ignorar archivos de sistema de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ignorar archivos de recursos generados por macOS
+_*.*
+
+# Ignorar archivos de configuración de editor
+*.sublime-workspace
+*.sublime-project
+.vscode/
+.idea/
+*.iml
+
+# Ignorar archivos de dependencias (si usas npm)
+node_modules/
+package-lock.json
+
+# Ignorar archivos de construcción (si usas un build tool)
+dist/
+build/
+
+# Ignorar archivos de configuración de entorno
+.env
+.env.local
+
+# Ignorar otros archivos que no quieras subir
+*.log
+*.tmp
