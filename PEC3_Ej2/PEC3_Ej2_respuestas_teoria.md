@@ -7,7 +7,7 @@ Ara `b` és el resultat de concatenar un string amb el valor enter 3. Això fa q
 
 L’objecte `c` té dues propietats (apple i banana), totes dues de tipus string seguint la nostra modificació.
 
-Quan s'intenta fer el càlcul de c.apple * 4, TypeScript detecta un problema perquè c.apple és un string (amb el valor "apple") i no es pot multiplicar per un enter 4. Això genera un TypeError en temps de compilació, indicat amb una línia vermella, i es mostra a l'IDE com:
+Quan s'intenta fer el càlcul de `c.apple * 4`, TypeScript detecta un problema perquè `c.apple` és un string (amb el valor "apple") i no es pot multiplicar per un enter 4. Això genera un TypeError en temps de compilació, indicat amb una línia vermella, i es mostra a l'IDE com:
 
 ![Text alternatiu](./capturaIDE.png)
 
@@ -41,7 +41,7 @@ Quan s'intenta fer el càlcul de c.apple * 4, TypeScript detecta un problema per
 
 3. L'error **TSTS2322** es produeix perquè quan es declara una variable amb el tipus never, s'està indicant que aquesta variable no hauria de contenir cap valor assignable. En el moment que s'intenta asignar el valor de tipus `number` salta l'error.
 
-4. L'error TS2571 es produeix perquè TypeScript no permet realitzar operacions directament amb variables de tipus unknown sense abans comprovar el seu tipus com ara això:
+4. L'error **TS2571** es produeix perquè TypeScript no permet realitzar operacions directament amb variables de tipus `unknown` sense abans comprovar el seu tipus com ara això:
 ```css
     if (typeof l === 'number') {
         let m = l * 2;
