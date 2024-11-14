@@ -1,12 +1,12 @@
 {
-  "compilerOptions": {
+  "compilerOptions": { //El compilerOptions ens permet donar instruccións al compilador sobre el seu comportament.
     /* Basic Options */
-    "target": "es2015", 
-    "module": "commonjs", 
-    "outDir": "./dist",   
-    "rootDir": "./src", 
-    "strict": true,
-    "incremental": true,
-    "tsBuildInfoFile": "./buildcache",
+    "target": "es2015", //Especifica la versió de JS a la que volem que es generi el codi. Si escollim "es6", el compilador generarà codi compatible amb ECMAScript 6.
+    "module": "commonjs", //Defineix el tipus de modules que utilitzaràs en el teu codi. Els mòduls són blocs de codi que es poden reutilitzar.(com commonjs o esnext).
+    "outDir": "./dist",   //Especifica la carpeta on es guarden els arxius JS generats.
+    "rootDir": "./src", //Especifica la carpeta on es troba el codi TS d'origen. Indica al compilador on buscar els arxius TypeScript.
+    "strict": true, //Activa un conjunt de normes estrictes per assegurar que el codi sigui més robust i lliure d'errors. Amb "strict": true, TypeScript serà exigent amb els tipus i les revisions.
+    "incremental": true, //Si s'activa, només compilarem els fitxers modificats des de la darrera compilació, en lloc de compilar tot el projecte sencer.
+    "tsBuildInfoFile": "./buildcache", //Direcció on es guardarà la informació de la compilació incremental. TS utilitza la informació de la compilació anterior per identificar quins fitxers han canviat.
   }
 }
