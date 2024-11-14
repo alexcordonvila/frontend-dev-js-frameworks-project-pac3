@@ -1,4 +1,4 @@
-const a = 1 + 2;
+const a = "apple";
 const b = a + 3;
 const c = {
   apple: a,
