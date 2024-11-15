@@ -1,9 +1,16 @@
+interface TodoData {
+  id: string;
+  text: string;
+  complete: boolean;
+}
+
+
 class Todo {
   id: string;
   text: string;
   complete: boolean;
 
-  constructor({ text, complete } : { text: string; complete: boolean } = { complete: false, text: '' }) {
+  constructor({  text = '', complete = false } : Partial<TodoData>) {
     this.id = this.uuidv4();
     this.text = text;
     this.complete = complete;
