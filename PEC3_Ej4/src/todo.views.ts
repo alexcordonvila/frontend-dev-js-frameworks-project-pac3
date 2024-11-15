@@ -28,16 +28,13 @@ class TodoView {
     this._initLocalListeners();
   }
 
-  //_todoText
   private get _todoText(): string {
     return this.input.value;
   }
-  //_resetInput
   private _resetInput(): void {
     this.input.value = "";
   }
 
-  //createElement
   private createElement(tag: string, className?: string): HTMLElement {
     const element = document.createElement(tag);
 
@@ -45,7 +42,7 @@ class TodoView {
 
     return element;
   }
-  //getElement
+
   private getElement(selector: string): HTMLElement | null {
     const element = document.querySelector(selector);
     if (!element) {
@@ -53,7 +50,6 @@ class TodoView {
     }
     return element as HTMLElement;
   }
-  //displayTodos
   displayTodos(todos: Todo[]): void{
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
@@ -95,7 +91,6 @@ class TodoView {
       });
     }
   }
-  //_initLocalListeners
   private _initLocalListeners(){
     this.todoList.addEventListener("input", (event) => {
       const target = event.target as HTMLElement;
@@ -104,7 +99,6 @@ class TodoView {
       }
     });
   }
-  //bindAddTodo
   public bindAddTodo(handler: (todoText: string) => void): void {
     this.form.addEventListener("submit", event => {
       event.preventDefault();
@@ -115,8 +109,15 @@ class TodoView {
       }
     });
   }
-  //bindDeleteTodo
-
+  public bindDeleteTodo(handler: (id: string) => void): void {
+    this.todoList.addEventListener("click", event => {
+      const target = event.target as HTMLElement;
+      if (target.className === "delete") {
+        const id = target.parentElement ? target.parentElement.id : "";
+        handler(id);
+      }
+    });
+  }
   //bindEditTodo
 
   //bindToggleTodo

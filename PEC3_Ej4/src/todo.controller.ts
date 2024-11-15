@@ -9,23 +9,25 @@ class TodoController {
 
         this.service.bindTodoListChanged(this.onTodoListChanged);
         this.view.bindAddTodo(this.handleAddTodo);
+        this.view.bindDeleteTodo(this.handleDeleteTodo);
 
         
         this.onTodoListChanged(this.service.todos);
     }
 
-        // onTodoListChanged
         private onTodoListChanged = (todos: Todo[]): void => {
             this.view.displayTodos(todos);
         };
-        // handleAddTodo
         private handleAddTodo = (todoText: string): void => {
             this.service.addTodo(todoText);
         };
 
-        // handleEditTodo
+        //handleEditTodo
 
         //handleDeleteTodo
+        private handleDeleteTodo = (id: string): void => {
+            this.service.deleteTodo(id);
+        };
 
         // handleToggleTodo
 

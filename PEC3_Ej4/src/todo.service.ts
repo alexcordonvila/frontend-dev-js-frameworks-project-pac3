@@ -24,13 +24,17 @@ class TodoService {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
   //addTodo
-    addTodo(text:string): void {
-        this.todos.push(new Todo({ text }));
-        this._commit(this.todos);
-    }
+  addTodo(text: string): void {
+    this.todos.push(new Todo({ text }));
+    this._commit(this.todos);
+  }
   //editTodo
 
   //deleteTodo
+  deleteTodo(id: string): void {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+    this._commit(this.todos);
+  }
 
   //ToggleTodo
 }
