@@ -39,5 +39,10 @@ class TodoService {
     this._commit(this.todos);
   }
 
-  //ToggleTodo
+  toggleTodo(id: string): void {
+    this.todos = this.todos.map(todo =>
+      todo.id === id ? new Todo({ ...todo, complete: !todo.complete }) : todo
+    );
+    this._commit(this.todos);
+  }
 }

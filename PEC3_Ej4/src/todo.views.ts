@@ -134,5 +134,14 @@ class TodoView {
       }
     });
   }
-  //bindToggleTodo
+  
+  public bindToggleTodo(handler: (id: string) => void): void {
+    this.todoList.addEventListener("change", event => {
+      const target = event.target as HTMLInputElement;
+      if (target.type === "checkbox") {
+        const id = target.parentElement ? target.parentElement.id  : "";
+        handler(id);
+      }
+    });
+  }
 }
