@@ -50,7 +50,7 @@ class TodoView {
     }
     return element as HTMLElement;
   }
-  displayTodos(todos: Todo[]): void{
+  displayTodos(todos: Todo[]): void {
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
     }
@@ -62,7 +62,7 @@ class TodoView {
       this.todoList.append(p);
     } else {
       // Create nodes
-      todos.forEach(todo => {
+      todos.forEach((todo) => {
         const li = this.createElement("li") as HTMLLIElement;
         li.id = todo.id;
 
@@ -82,7 +82,10 @@ class TodoView {
           span.textContent = todo.text;
         }
 
-        const deleteButton = this.createElement("button", "delete") as HTMLButtonElement;
+        const deleteButton = this.createElement(
+          "button",
+          "delete"
+        ) as HTMLButtonElement;
         deleteButton.textContent = "Delete";
         li.append(checkbox, span, deleteButton);
 
@@ -91,7 +94,7 @@ class TodoView {
       });
     }
   }
-  private _initLocalListeners(){
+  private _initLocalListeners() {
     this.todoList.addEventListener("input", (event) => {
       const target = event.target as HTMLElement;
       if (target.className === "editable") {
@@ -99,8 +102,9 @@ class TodoView {
       }
     });
   }
+
   public bindAddTodo(handler: (todoText: string) => void): void {
-    this.form.addEventListener("submit", event => {
+    this.form.addEventListener("submit", (event) => {
       event.preventDefault();
 
       if (this._todoText) {
@@ -109,8 +113,9 @@ class TodoView {
       }
     });
   }
+
   public bindDeleteTodo(handler: (id: string) => void): void {
-    this.todoList.addEventListener("click", event => {
+    this.todoList.addEventListener("click", (event) => {
       const target = event.target as HTMLElement;
       if (target.className === "delete") {
         const id = target.parentElement ? target.parentElement.id : "";
@@ -118,7 +123,16 @@ class TodoView {
       }
     });
   }
-  //bindEditTodo
 
+  public bindEditTodo(handler: (id: string, text: string) => void): void {
+    this.todoList.addEventListener("focusout", (event) => {
+      if (this._temporaryTodoText) {
+        const target = event.target as HTMLElement;
+        const id = target.parentElement ? target.parentElement.id : "";
+        handler(id, this._temporaryTodoText);
+        this._temporaryTodoText = "";
+      }
+    });
+  }
   //bindToggleTodo
 }
