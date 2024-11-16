@@ -48,6 +48,7 @@ Fins aquest moment no habia treballat mai amb Typescript i m'ha estat difícil e
 #### **Breu descripció:** 
 
 En aquest exercici s'ha transformat l'aplicació TODO proporcionada en JavaScript (de la PAC2) a TypeScript. S'ha treballat com transpilar usant TSC i Webpack.
+Dins la carpeta PEC3_Ej4 hi ha un README_PEC3_Ej4.md on s'explica com transpilar el projecte.
 
 ## Dificultats Trobades
 
