@@ -1,0 +1,30 @@
+# Instruccions per a Transpilar el Projecte
+
+## Transpilar el projecte original entregat:
+El codi original Typescript es troba a la carpeta `./scr` tot es transpila via **Webpack** amb mode producció a la carpeta dist. Si la carpeta dist no existeix es torna a generar al transpilar de nou el codi. En els punts següents s'explica com generar un bundle.js i un index.html. El fitxer d'estil `style.css` es carrega dins del bundle.js.
+
+1. Tenir **Node.js** instal·lat al PC.
+2. Usant un terminal, navegar fins a la carpeta `PEC3/PEC3_Ej4`.
+3. Usant un terminal, executar la comanda següent per instal·lar dependències:  
+   `npm install`
+4. Usant un terminal, executar aquesta comanda per transpilar el projecte amb **Webpack**:  
+   `npm run build` o bé usar directament `webpack` al terminal. 
+   (Veure que al `package.json` s'hi han afegit scripts per transpilar via Webpack o tsc).
+5. Webpack s'executarà i crearà una carpeta `dist` a l'arrel de `PEC3/PEC3_Ej4`. A dins de `dist` s'ha creat un `index.html` i un `bundle.js`.
+6. Obrir el fitxer `index.html` amb un navegador, que s'executarà al mateix temps que el `bundle.js`.  
+   **Recomanació:** Obre-ho amb **Open Five Server** o eines similars des de **Visual Studio**.
+
+---
+
+## Transpilar si es clona el projecte del repositori:
+Repositori github: `https://github.com/alexcordonvila/frontend-dev-js-frameworks-project-pac3.git`
+
+1. Tenir **Node.js** instal·lat.
+2. Usant un terminal, navegar fins a la carpeta `PEC3/PEC3_Ej4`.
+3. **IMPORTANT:** Canviar el nom del fitxer `webpack.config.js.rename` a `webpack.config.js`.
+4. Llançar la comanda:  
+   `npm install`
+5. Llançar la comanda:  
+   `npm run build` o bé usar directament `webpack` al terminal.
+6. Webpack s'executarà i crearà una carpeta `dist` a l'arrel de `PEC3/PEC3_Ej4`. A dins de `dist` s'ha creat un `index.html` i un `bundle.js`.
+7. Obrir el fitxer `index.html` amb un navegador, que s'executarà al mateix temps que el `bundle.js`. 
