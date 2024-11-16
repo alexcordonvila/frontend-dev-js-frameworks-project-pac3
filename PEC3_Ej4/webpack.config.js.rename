@@ -1,0 +1,61 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const path = require('path');
+
+const basePath = __dirname;
+
+module.exports = {
+  // Punt d'entrada per a l'aplicació
+  entry: './src/app.ts',
+  // Configuració de sortida
+  output: {
+    filename: 'bundle.js',  // El nom del fitxer JS transformat
+    path: path.resolve(__dirname, 'dist')  // Destinació de sortida (dist/)
+  },
+
+  // Resoldre les extensions .ts i .js per importar els fitxers de forma automàtica
+  resolve: {
+    alias: {
+      controllers: path.resolve(__dirname, "./src/controllers/"),
+      views: path.resolve(__dirname, "./src/views/"),
+      models: path.resolve(__dirname, "./src/models"),
+      services: path.resolve(__dirname, "./src/services")
+    },
+    extensions: [".js", ".ts", ".tsx", ".json"]
+  },
+
+  // Regles per processar els fitxers
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: "ts-loader",  
+      },
+      {
+        test: /\.css$/i,  // Processar arxius CSS
+        use: ['style-loader', 'css-loader'],  // Aplicar els carregadors per CSS
+      }
+    ]
+  },
+
+  // Plugins per generar i gestionar el HTML
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html',  // Plantilla d'HTML a usar
+      filename: 'index.html',  // Nom del fitxer d'HTML a generar
+    })
+  ],
+
+  // Configuració per a la compilació en mode desenvolupament
+  mode: 'production',  // Utilitzar el mode de desenvolupament
+  devtool: 'inline-source-map',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),  // Cambia contentBase por static
+    },
+    port: 8080,
+    open: true,
+    hot: true,
+  }
+};
