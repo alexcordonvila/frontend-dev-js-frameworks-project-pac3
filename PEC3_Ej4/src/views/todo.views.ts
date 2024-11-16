@@ -1,4 +1,6 @@
-class TodoView {
+import { Todo } from "../models/todo.model";
+
+export class TodoView {
   private app: HTMLElement;
   private form: HTMLFormElement;
   private input: HTMLInputElement;

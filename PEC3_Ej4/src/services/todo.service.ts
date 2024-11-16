@@ -1,13 +1,15 @@
-type TodoListChangedCallback = (todos: Todo[]) => void;
+import { Todo } from "../models/todo.model";
 
-class TodoService {
+export type TodoListChangedCallback = (todos: Todo[]) => void;
+
+export class TodoService {
   public todos: Todo[] = [];
   private onTodoListChanged?: TodoListChangedCallback;
 
   constructor() {
     const savedTodos = localStorage.getItem("todos");
     this.todos = savedTodos
-      ? JSON.parse(savedTodos).map((todoData: Todo) => new Todo(todoData))
+      ? JSON.parse(savedTodos).map((todoData: Partial<Todo>) => new Todo(todoData))
       : [];
   }
 

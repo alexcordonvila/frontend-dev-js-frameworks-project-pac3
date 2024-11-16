@@ -1,11 +1,10 @@
-interface TodoData {
+export interface TodoData {
   id: string;
   text: string;
   complete: boolean;
 }
 
-
-class Todo {
+export class Todo {
   id: string;
   text: string;
   complete: boolean;
